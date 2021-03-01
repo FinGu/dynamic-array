@@ -29,7 +29,7 @@ o_array_err o_handle_errs(int code){
 o_array_err o_alloc_arr(o_array* arr){
     arr->increment = 0;
 
-    arr->data = malloc(sizeof(void*));
+    arr->data = NULL;
 
     if(!arr->data){
         o_free_arr(arr);
@@ -138,7 +138,7 @@ int o_valid_index(int index, int nc, o_array arr){
 o_array_err o_realloc_vpp(int size, void*** arr){
     void** tpp = NULL;
 
-    tpp = realloc(*arr, sizeof(**arr) * size); 
+    tpp = realloc(*arr, size); 
 
     if(!tpp){
         free(tpp);
