@@ -16,7 +16,7 @@ typedef enum {
 
 o_array_err o_handle_errs(int); //handle and display messages for errors ( should be called by the end user )
 
-o_array_err o_alloc_arr(o_array*); //initialize struct
+o_array_err o_init_arr(o_array*); //initialize struct
 
 o_array_err o_push_elem(int, void*, o_array*); //allocate one more index and push item
 

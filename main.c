@@ -8,7 +8,7 @@ int main(void){
     o_array x;
     void* datap = NULL;
 
-    o_alloc_arr(&x);
+    o_init_arr(&x);
 
     o_push_elem(2, "a", &x); // 'a' '\0'
 

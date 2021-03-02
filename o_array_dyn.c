@@ -26,16 +26,10 @@ o_array_err o_handle_errs(int code){
     return code;
 }
 
-o_array_err o_alloc_arr(o_array* arr){
+o_array_err o_init_arr(o_array* arr){
     arr->increment = 0;
 
     arr->data = NULL;
-
-    if(!arr->data){
-        o_free_arr(arr);
-
-        return o_alloc_failed;
-    }
 
     return o_success;
 }
@@ -61,7 +55,7 @@ o_array_err o_insert_elem(int index, int size, void* data, o_array* arr){
 
     arr->data[index] = realloc(NULL, size); //free &OR allocate memory for the element
 
-    if(!arr->data[index]){
+    if(arr->data[index] == NULL){
         return o_alloc_failed;
     }
 
@@ -122,9 +116,8 @@ void o_free_arr(o_array* arr){
 
             free(arr->data[i]);
         }
+        free(arr->data);
     }
-
-    free(arr->data);
 }
 
 int o_valid_index(int index, int nc, o_array arr){
@@ -136,16 +129,11 @@ int o_valid_index(int index, int nc, o_array arr){
 }
 
 o_array_err o_realloc_vpp(int size, void*** arr){
-    void** tpp = NULL;
+    *arr = realloc(*arr, size); 
 
-    tpp = realloc(*arr, size); 
-
-    if(!tpp){
-        free(tpp);
+    if(*arr == NULL){
         return o_alloc_failed;
     }
-
-    *arr = tpp;
 
     return o_success;
 }
