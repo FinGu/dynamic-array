@@ -53,7 +53,7 @@ o_array_err o_insert_elem(int index, int size, void* data, o_array* arr){
         return o_invalid_index;
     }
 
-    arr->data[index] = realloc(NULL, size); //free &OR allocate memory for the element
+    arr->data[index] = realloc(arr->data[index], size); //free &OR allocate memory for the element
 
     if(arr->data[index] == NULL){
         return o_alloc_failed;
