@@ -34,10 +34,8 @@ void o_init_arr(o_array* arr){
 
 o_array_err o_push_elem(int size, void* data, o_array* arr){
     o_array_err oar;
-
-    ++arr->increment;
-
-    oar = o_realloc_vpp(arr->increment, &arr->data); //add another index to the array
+   
+    oar = o_realloc_vpp(++arr->increment, &arr->data); //add another index to the array
 
     if(oar == o_success){
        oar = o_insert_elem(arr->increment, size, data, arr);
