@@ -26,12 +26,10 @@ o_array_err o_handle_errs(int code){
     return code;
 }
 
-o_array_err o_init_arr(o_array* arr){
+void o_init_arr(o_array* arr){
     arr->increment = 0;
 
     arr->data = NULL;
-
-    return o_success;
 }
 
 o_array_err o_push_elem(int size, void* data, o_array* arr){
