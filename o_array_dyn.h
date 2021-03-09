@@ -28,6 +28,6 @@ o_array_err o_remove_elem(int, o_array*); //remove item with a certain index
 
 o_array_err o_fetch_elem(int, void**, o_array*); //fetch item data
  
-void o_free_arr(o_array*); //free all allocated data
+void o_uninit_arr(o_array*); //uninitialize elements and frees the array
 
 #endif // OARR_C

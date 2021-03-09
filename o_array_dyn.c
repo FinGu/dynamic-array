@@ -101,7 +101,7 @@ o_array_err o_fetch_elem(int index, void** datap, o_array* arr){
     return o_success;
 }
 
-void o_free_arr(o_array* arr){
+void o_uninit_arr(o_array* arr){
     int i;
 
     if(arr->data){
@@ -114,6 +114,7 @@ void o_free_arr(o_array* arr){
         }
         free(arr->data);
     }
+    arr->increment = -1;
 }
 
 int o_valid_index(int index, int nc, o_array arr){
